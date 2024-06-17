@@ -10,13 +10,17 @@ const buttonCreate = document.querySelector("[data-create]");
 const buttonDestroy = document.querySelector("[data-destroy]");
 
 function createBoxes(amount) {
+  const fragment = document.createDocumentFragment();
+
   for (let i = 0; i < amount; i += 1) {
     const div = document.createElement("div");
     div.style.backgroundColor = getRandomHexColor();
     div.style.width = `${30 + i * 10}px`;
     div.style.height = `${30 + i * 10}px`;
-    boxes.append(div);
+    fragment.appendChild(div);
   }
+
+  boxes.appendChild(fragment);
 };
 
 function destroyBoxes() {
